@@ -16,7 +16,6 @@ const HOST = process.env.host || '0.0.0.0';
 app.use(bodyparser.urlencoded ({extended : false}));
 
 app.use(express.static('./public'));
-app.use(express.static('./public'));
 
 app.listen(PORT, function () {
 	console.log("server running on https://"+HOST+":"+PORT+"/");
