@@ -1,0 +1,50 @@
+
+
+<div  style=" margin-left: 7%;" class="row">
+        <div class="col m1 l3 s1 offset-l1"></div> 
+        <div class="col  m10  l3 s10">    
+              <div class="card ">
+            
+              <div class="card-content center black-text">
+                <span style="font-weight: 600; font-size: 40px;" class="card-title">Hi !</span> <br>
+                <span style=" font-size: 30px; font-weight: 350" class="card-title">{{User_Hunger_Manager.name.charAt(0).toUpperCase()+User_Hunger_Manager.name.slice(1)}}</span> <br>
+                <img id="profile_image" class="responsive-img  circle " ng-src="/media/{{ User_Hunger_Manager.email.split('@')[0] }}"  /> <br> <br>
+              
+                <div class="chip">
+                  <img  src="../images/hunger-manager-logo.png" alt="email">
+                  {{User_Hunger_Manager.rollno}}
+                  
+                </div>
+                <br><br>  
+               
+              </div>
+              <div class="card-action center">
+                  <a ng-click="pastOrders()"  class=" waves-effect waves-secondary-color  btn-flat" style="color: #4EA9E3;font-size: 20px"><i  class="material-icons left">receipt</i>Past Orders</a>
+                         
+                </div>
+         
+            </div>
+          </div>
+       
+        </div>
+        <div>
+            <div class="row">
+                <div class="" style="display: flex; justify-content: center">
+                  <div class="card  " >
+                    <div class="card-content black-text">
+                      <span class="card-title" style="display: flex; justify-content: center">CURRENT ACTIVATED QR CODE</span>
+                      <div ng-if="qrCode == 'true'"  style="display: flex; justify-content: center">
+                          <img ng-src="{{locationQr}}" height="150" width="150">   
+                      </div>
+                    </div>
+                    <!-- <div class="card-action"> -->
+                      <!-- <a href="#">This is a link</a> -->
+                      <!-- <a href="#">This is a link</a> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+             
+           
+          </div>
+                

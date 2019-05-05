@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" href="../images//hunger-manager-logo.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
+    <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/materialize.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- angular imports -->
+    <script src="../js/controllers/HomeCtrl.js"></script>
+    <script src="../js//controllers/LoginCtrl.js"></script>
+    <script src="../js//controllers/SignupCtrl.js"></script>
+    <script src="../js//controllers/ProfileCtrl.js"></script>
+    <script src="../js/controllers/BookMealCtrl.js"></script>
+    <script src="../js/route.js"></script>
+    <!-- end of angular imports -->
+
+    <title>Hunger Manager</title>
+</head>
+
+<body ng-app="HungerManagerApp" ng-controller="HomeController">
+    <header>
+        <div class="navbar-fixed">
+            <nav class=" primary-color " role="navigation">
+                <div class="nav-wrapper container ">
+                    <a href="" data-target="slide-out" class="sidenav-trigger show-on-large pulse  "
+                        data-position="bottom">
+                        <i class="material-icons">menu</i>
+                    </a>
+                    <a href="#home">
+                        <img src="../images/hunger-manager-logo.png" height="60" width="60" style="margin-top: 2px;">
+                    </a>
+                    <a href="#home" class="brand-logo ">Hunger Manager</a> 
+                    <!-- add center class to logo later -->
+
+                    <ul class="right show-on-medium-and-down hide-on-med-and-up" >
+                        <li>
+                            <a class=" dropdown-trigger" data-target="dropdown1" style="font-size: 16px">Options
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down" >
+
+                        <li ng-if= "loggedIn_Hunger_Manager == 'false'" >
+                            <a href="#login">
+                                <i class=" material-icons  left">insert_emoticon</i>Log In</a>
+                        </li>
+                        <li ng-if= "loggedIn_Hunger_Manager == 'false'" >
+                            <a href="#signup">
+                                <i class="material-icons left">group_add</i>Create an Account</a>
+                        </li>
+                        <li ng-if = "loggedIn_Hunger_Manager == 'true'">
+                            <a href="#profile"  >
+                                <i class="material-icons left">dvr</i>Pofile</a>
+                        </li>
+                        <li ng-if = "loggedIn_Hunger_Manager == 'true'">
+                            <a href="#bookmeal">
+                                    <i class="fas fa-utensils"></i> Book Meal</a>
+                        </li>
+                        <li ng-if= "loggedIn_Hunger_Manager == 'true'" >
+                            <a href="" ng-click="logout()">
+                                    <i class="fas fa-sign-out-alt"></i> Logout </a>
+                        </li>
+
+
+                    </ul>
+
+
+                    <!--     
+                <ul class="show-on-medium-and-down">
+                  <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Drop Me!</a>
+                </ul> -->
+                    <ul id='dropdown1' class='dropdown-content' >
+
+                                    <li ng-if= "loggedIn_Hunger_Manager == 'false'" >
+                                        <a href="#login">
+                                            <i class=" material-icons  left">insert_emoticon</i>Log In</a>
+                                    </li>
+                                    <li ng-if= "loggedIn_Hunger_Manager == 'false'" >
+                                        <a href="#signup">
+                                            <i class="material-icons left">group_add</i>Create an Account</a>
+                                    </li>
+                                    <li ng-if = "loggedIn_Hunger_Manager == 'true'">
+                                        <a href="#profile"  >
+                                            <i class="material-icons left">dvr</i>Pofile</a>
+                                    </li>
+                                    <li ng-if = "loggedIn_Hunger_Manager == 'true'">
+                                        <a href="#bookmeal">
+                                                <i class="fas fa-utensils"></i> Book &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Meal</a>
+                                    </li>
+                                    <li ng-if= "loggedIn_Hunger_Manager == 'true'" >
+                                        <a href="" ng-click="logout()" style="font-size: 13px;">
+                                                <i class="fas fa-sign-out-alt"></i> Logout </a>
+                                    </li>
+            
+            
+                                
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background ">
+                        <img src="./images/cover_img.jpg" height="200" width="300">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+
+            </li>
+
+
+            <li style="font-size: 40px; ">&nbsp;
+                <img src="images/cuisine.png" height="40" width="40">&nbsp; Cuisine</li>
+            <div class="divider"></div>
+
+
+            <li>
+                <a class="waves-effect" href="#soups" style="font-size: 25px; ">
+                    <img src="images/soup.png" height="25" width="25">&emsp;Soups</a>
+            </li>
+
+            <li>
+                <a class="waves-effect" href="#northIndian" style="font-size: 25px; ">
+                    <img src="images/northinidanblack.png" height="25" width="25">&emsp;North Indian</a>
+            </li>
+
+            <li>
+                <a class="waves-effect" href="#chinese" style="font-size: 25px; ">
+                    <img src="images/chinese.png" height="25" width="25">&emsp;Chinese</a>
+            </li>
+
+            <li>
+                <a class="waves-effect" href="#italian" style="font-size: 25px; ">
+                    <img src="images/italian.png" height="25" width="25">&emsp;Italian</a>
+            </li>
+            <li>
+                <a class="waves-effect" href="#southIndian" style="font-size: 25px; ">
+                    <img src="images/southIndian.png" height="25" width="25">&emsp;South Indian</a>
+            </li>
+
+            <li>
+                <a class="waves-effect" href="#salads" style="font-size: 25px; ">
+                    <img src="images/salad1.png" height="25" width="25">&emsp;Salads</a>
+            </li>
+
+
+        </ul>
+
+    </header>
+
+    <main id="main" class="bgimg">
+
+        <div ng-view></div>
+
+
+    </main>
+
+    <footer class="page-footer primary-color">
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2019 Copyright
+                <a class="grey-text text-lighten-4  right" href="#!" style="padding-left: 10px;">Contact Us </a>
+
+                <a class="grey-text text-lighten-4 right " href="#!" style="padding-left: 10px;">About Us</a>
+            </div>
+        </div>
+
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
+    <script>
+        $(function () {
+            $('select').formSelect();
+            $('.dropdown-trigger').dropdown({
+                hover: false,
+                coverTrigger: false
+            });
+            $('.sidenav').sidenav();
+
+        });
+    </script>
+</body>
+
+</html>
