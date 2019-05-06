@@ -1,5 +1,6 @@
 // app.controller("home", function ($rootScope, $scope, $location, $window, $localStorage) {
     angular.module("SignupCtrl",[]).controller("SignupController", function ($rootScope, $scope, $http, $location, $timeout, $window){
+      console.log("signup ctrl");
         $('input#icon_telephone').characterCounter();
         $("#main").removeClass("home");
         $('#main').addClass("bgimg");

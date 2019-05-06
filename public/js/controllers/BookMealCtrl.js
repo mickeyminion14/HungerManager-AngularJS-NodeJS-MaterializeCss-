@@ -1,5 +1,6 @@
 angular.module("BookMealCtrl",[])
 .controller("BookMealController", function ($rootScope, $http, $scope, $location, $window, $localStorage){
+    console.log("bookmeal ctrl");
     $rootScope.User_Hunger_Manager;
     $rootScope.NavBarVisibilty = "true";
     $rootScope.MobileNavBarVisibilty = "true";  
@@ -25,7 +26,7 @@ angular.module("BookMealCtrl",[])
            if(data.found == false) {
                 let locationQrCode = data.locationQr.substr(6);
                
-               console.log(data);
+               console.log(locationQrCode);
                $localStorage.qrCode = "true";
                $localStorage.locationQr = "../"+locationQrCode;
                $location.path("/profile");

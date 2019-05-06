@@ -1,5 +1,5 @@
 angular.module("ProfileCtrl",[]).controller("ProfileController", function ($rootScope, $scope, $localStorage, $location){
-  
+  console.log("profile ctrl");
     $("#main").removeClass("home");
     $('#main').addClass("bgimg");
     $('.materialboxed').materialbox();

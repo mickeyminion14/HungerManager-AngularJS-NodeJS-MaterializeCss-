@@ -149,6 +149,7 @@ router.post("/bookmeal", (req, res) => {
       if (err) throw err;
       // console.log("**********************************");
       if (result.length <= 0) {
+        let final_qr_url="";
         found = false;
         console.log(result + "angel");
 
@@ -158,16 +159,18 @@ router.post("/bookmeal", (req, res) => {
           if (err) throw err;
           console.log("Inserted");
           console.log(result.result.ok);
+           final_qr_url = req.body.unique_id;
+          final_qr_url = final_qr_url.replace(/\//g,'')
           res.json({
             error: false,
             mssg: result.result,
             found : false,
-            locationQr : "public/media/output/qrcode.png"
+            locationQr : "public/media/output/"+final_qr_url+".png"
           });
         });
         qrImage
 		.image(req.body.unique_id, {type:'png',size:20})
-		.pipe(fs.createWriteStream("public/media/output/qrcode.png"));
+		.pipe(fs.createWriteStream("public/media/output/"+req.body.unique_id.replace(/\//g,'')+".png"));
 
       } else {
         console.log("already exixts");

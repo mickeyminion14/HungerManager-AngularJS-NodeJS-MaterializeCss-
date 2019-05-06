@@ -1,5 +1,6 @@
 // app.controller("home", function ($rootScope, $scope, $location, $window, $localStorage) {
     angular.module("LoginCtrl",[]).controller("LoginController", function ($rootScope, $location, $scope, $timeout, $http, $window, $localStorage){
+      console.log("login ctrl");
     $localStorage.User_Hunger_Manager;
     $localStorage.loggedIn_Hunger_Manager;
     $scope.formData = {};
