@@ -28,7 +28,7 @@ angular.module("BookMealCtrl",[])
                
                console.log(locationQrCode);
                $localStorage.qrCode = "true";
-               $localStorage.locationQr = "../"+locationQrCode;
+               $localStorage.locationQr = locationQrCode;
                $location.path("/profile");
            }
            else {

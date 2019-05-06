@@ -165,12 +165,12 @@ router.post("/bookmeal", (req, res) => {
             error: false,
             mssg: result.result,
             found : false,
-            locationQr : "public/media/output/"+final_qr_url+".png"
+            locationQr : "public/media/"+final_qr_url
           });
         });
         qrImage
 		.image(req.body.unique_id, {type:'png',size:20})
-		.pipe(fs.createWriteStream("public/media/output/"+req.body.unique_id.replace(/\//g,'')+".png"));
+		.pipe(fs.createWriteStream("public/media/"+req.body.unique_id.replace(/\//g,'')));
 
       } else {
         console.log("already exixts");
