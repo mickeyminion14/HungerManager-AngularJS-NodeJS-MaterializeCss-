@@ -62,6 +62,13 @@
       height: 150px;
   
   }
+  #profile_image {
+    
+    background-image:url('../images/default.jpg');
+    width:150px;
+    height: 150px;
+
+}
   
 
   /* css for bread loading
