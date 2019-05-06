@@ -30,7 +30,7 @@ router.post("/createUser", function (req, res) {
   var found = true;
   let profile_image;
   if (!req.files) {
-    profile_image = "null";
+    profile_image = null;
   } else {
     profile_image = req.files.profile_image;
   }
@@ -51,7 +51,8 @@ router.post("/createUser", function (req, res) {
         email: req.body.email
       }, {
         mobile: req.body.mobile
-      }]
+      },
+    {rollno: req.body.rollno}]
     }).toArray(function (err, result) {
       if (err) throw err;
       // console.log("**********************************");
